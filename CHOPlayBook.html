@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cactus Home Offer – Execution Playbook</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <!-- 
+    Color Palette Chosen: Forest Green Theme based on provided logo
+    - #0F4C3B (Dark Forest Green - for main text and header background)
+    - #1F7A54 (Medium Forest Green - for accents, buttons, secondary backgrounds)
+    - #F7FBF8 (Very Light Green/Off-White - for main page background, card backgrounds) - NOTE: Body background now pure white for facelift
+    - #FFFFFF (White - for text on dark backgrounds, internal card backgrounds)
+    - #FFD700 (Gold/Yellow Accent - for KPIs, highlights)
+
+    Confirmation: NEITHER Mermaid JS NOR SVG were used in this output. All charts are rendered on <canvas> elements using Chart.js. All diagrams are built with structured HTML and styled with Tailwind CSS.
+    -->
+    <style>
+        :root {
+            --color-dark-green: #0F4C3B;
+            --color-medium-green: #1F7A54;
+            --color-light-bg: #F7FBF8; /* Original light background, but body now uses white */
+            --color-white: #FFFFFF;
+            --color-yellow-accent: #FFD700;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-white); /* Changed to pure white */
+            color: var(--color-dark-green);
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .flow-step {
+            position: relative;
+            padding-left: 5rem; 
+            padding-bottom: 2rem;
+            min-height: 42px; 
+        }
+        .flow-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 20px; 
+            top: 48px;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--color-medium-green);
+            opacity: 0.3;
+        }
+        .flow-number {
+            position: absolute;
+            left: 0.75rem; 
+            top: 0;
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            background-color: var(--color-medium-green);
+            color: var(--color-white);
+            font-weight: 700;
+            font-size: 1.25rem;
+            z-index: 10;
+            border: 4px solid var(--color-white); /* Border against white body */
+        }
+        .flow-step h3, .flow-step p {
+            margin-left: 0.5rem; 
+        }
+    </style>
+</head>
+<body class="text-[var(--color-dark-green)]">
+
+    <!-- Full-width Header Section - Now White Background -->
+    <header class="bg-[var(--color-white)] py-8 text-center"> 
+        <img src="CACTUS HOME OFFER LOGO (White BG)_Updated.jpg" 
+             alt="Cactus Home Offer Logo" 
+             class="mx-auto my-4 w-64 h-auto rounded-md shadow-lg border border-gray-200"> <!-- More pronounced shadow and subtle border for definition -->
+    </header>
+
+    <!-- Main Content Container with increased horizontal padding -->
+    <div class="px-8 md:px-16 lg:px-24 xl:px-40 py-8"> 
+        
+        <main>
+            <section id="org-chart" class="mb-16">
+                <h2 class="text-3xl font-bold text-center mb-8 flex items-center justify-center">
+                    📈 1. Org Chart by Function
+                </h2>
+                <div class="space-y-10">
+
+                    <div class="p-6 bg-white rounded-xl shadow-lg border border-gray-100"> <!-- Rounded-xl and shadow-lg -->
+                        <h3 class="text-xl font-bold mb-4 border-b pb-2 text-[var(--color-medium-green)]">CEO/Founders</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="p-4 bg-green-50 rounded-lg border border-green-100">
+                                <p class="font-bold text-lg">Rick</p>
+                                <p class="text-sm text-gray-600">Vision, Marketing Strategy, Sales Culture</p>
+                            </div>
+                            <div class="p-4 bg-green-50 rounded-lg border border-green-100">
+                                <p class="font-bold text-lg">Chris</p>
+                                <p class="text-sm text-gray-600">Operations, Closings, Flips & Rentals</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div class="p-6 bg-white rounded-xl shadow-lg border border-gray-100"> <!-- Rounded-xl and shadow-lg -->
+                            <h3 class="text-xl font-bold mb-4 border-b pb-2 text-[var(--color-medium-green)]">🎯 Acquisitions Team</h3>
+                            <div class="space-y-3">
+                                <!-- Changed text color to match Open Roles / Future Growth -->
+                                <p><span class="font-bold">Mike:</span> Acquisitions | <span class="text-yellow-800 font-semibold">Owns $50K+/mo revenue, 4+ contracts, 20 offers/week</span></p>
+                                <p><span class="font-bold">Nick:</span> Acquisitions | Same KPIs, hybrid focus</p>
+                                <p><span class="font-bold">Frank:</span> Acquisitions | Hybrid but lead heavier on agents</p>
+                            </div>
+                        </div>
+
+                        <div class="p-6 bg-white rounded-xl shadow-lg border border-gray-100"> <!-- Rounded-xl and shadow-lg -->
+                            <h3 class="text-xl font-bold mb-4 border-b pb-2 text-[var(--color-medium-green)]">💸 Dispositions</h3>
+                             <div class="space-y-3">
+                                <!-- Changed text color to match Open Roles / Future Growth -->
+                                <p><span class="font-bold">Ari:</span> Dispo Manager | <span class="text-yellow-800 font-semibold">50% close rate, assign in 4 days, $25K min revenue</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div class="p-6 bg-white rounded-xl shadow-lg border border-gray-100"> <!-- Rounded-xl and shadow-lg -->
+                            <h3 class="text-xl font-bold mb-4 border-b pb-2 text-[var(--color-medium-green)]">⚙️ Core Operations</h3>
+                            <div class="space-y-3">
+                                <p><span class="font-bold">Eveling (Transaction Coordination):</span> Daily updates, &lt;20min contract turnaround, clear title</p>
+                                <p><span class="font-bold">Leah (KPI/Ops):</span> Weekly KPI report, lead quality, budget control</p>
+                                <p><span class="font-bold">Mark (Tech Support):</span> CRM data, lead quality check, backend ops</p>
+                            </div>
+                        </div>
+
+                        <div class="p-6 bg-white rounded-xl shadow-lg border border-gray-100"> <!-- Rounded-xl and shadow-lg -->
+                           <h3 class="text-xl font-bold mb-4 border-b pb-2 text-[var(--color-medium-green)]">📢 Marketing & Growth (3rd Party)</h3>
+                            <div class="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
+                                <p><span class="font-bold">Joey:</span> Ads (FB, TikTok)</p>
+                                <p><span class="font-bold">Deepak:</span> Web Developer</p>
+                                <p><span class="font-bold">Tarun:</span> CRO / Dashboard</p>
+                                <p><span class="font-bold">Adel:</span> Email Campaigns</p>
+                                <p><span class="font-bold">Haezel:</span> Lead Manager (Reactivations)</p>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="p-6 bg-yellow-50 rounded-xl shadow-lg border-l-4 border-yellow-400 rounded-r-lg"> <!-- Rounded-xl and shadow-lg -->
+                        <h3 class="text-xl font-bold mb-4 text-yellow-800">🚀 Open Roles / Future Growth</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="flex flex-col items-center">
+                                <p class="font-semibold text-gray-700 mb-2">Sales Manager</p>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <p class="font-semibold text-gray-700 mb-2">Execution Task Follow-Through Manager</p>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <p class="font-semibold text-gray-700 mb-2">Sales Call Review / Training Manager</p>
+                            </div>
+                        </div>
+                        <!-- LLM response area removed -->
+                    </div>
+                </div>
+            </section>
+
+            <section id="kpis" class="mb-16">
+                <h2 class="text-3xl font-bold text-center mb-8 flex items-center justify-center">
+                    📊 Key Performance Indicators
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <div class="p-6 bg-white rounded-xl shadow-lg text-center flex flex-col justify-center border border-gray-100"> <!-- Rounded-xl and shadow-lg -->
+                        <h3 class="text-xl font-bold mb-2 text-[var(--color-medium-green)]">Acquisitions Revenue Goal</h3>
+                        <p class="text-5xl font-extrabold text-[var(--color-dark-green)]">$50,000+</p>
+                        <p class="text-gray-500">Per Month</p>
+                    </div>
+
+                    <div class="p-6 bg-white rounded-xl shadow-lg text-center flex flex-col justify-center border border-gray-100"> <!-- Rounded-xl and shadow-lg -->
+                        <h3 class="text-xl font-bold mb-2 text-[var(--color-medium-green)]">Minimum Deal Revenue</h3>
+                        <p class="text-5xl font-extrabold text-[var(--color-dark-green)]">$25,000</p>
+                        <p class="text-gray-500">From Dispositions</p>
+                    </div>
+
+                    <!-- Dispositions Close Rate: Changed to Big Number -->
+                    <div class="p-6 bg-white rounded-xl shadow-lg text-center flex flex-col justify-center border border-gray-100"> <!-- Rounded-xl and shadow-lg -->
+                        <h3 class="text-xl font-bold mb-2 text-[var(--color-medium-green)]">Dispositions Close Rate</h3>
+                        <p class="text-5xl font-extrabold text-[var(--color-dark-green)]">50%</p>
+                        <p class="text-gray-500">Target for assigning deals</p>
+                    </div>
+
+                    <div class="p-6 bg-white rounded-xl shadow-lg md:col-span-2 lg:col-span-3 flex flex-col justify-between border border-gray-100"> <!-- Rounded-xl and shadow-lg -->
+                        <div>
+                            <h3 class="text-xl font-bold mb-4 text-center text-[var(--color-medium-green)]">Weekly Acquisitions Activity</h3>
+                            <div class="chart-container h-64 max-h-64">
+                                <canvas id="acquisitionsActivityChart"></canvas>
+                            </div>
+                            <p class="text-center text-gray-500 mt-4">These are the minimum weekly targets for each member of the acquisitions team.</p>
+                        </div>
+                        <!-- LLM button removed -->
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="deal-lifecycle">
+                <h2 class="text-3xl font-bold text-center mb-12 flex items-center justify-center">
+                    🗺️ 2. Deal Lifecycle – Execution Map
+                </h2>
+                <div class="max-w-3xl mx-auto bg-white p-6 rounded-xl shadow-lg border border-gray-100"> <!-- Added card styling to the flow section -->
+                    <div class="relative pl-20">
+                        <div class="flow-step">
+                            <div class="flow-number">1</div>
+                            <h3 class="font-bold text-lg mb-1">Lead Comes In</h3>
+                            <p class="text-gray-600">Sales calls in &lt;2 min, qualifies, makes offer</p>
+                            <!-- LLM button removed -->
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-number">2</div>
+                            <h3 class="font-bold text-lg mb-1">Contract Phase</h3>
+                            <p class="text-gray-600">Rep fills out contract, TC sends via DocuSign, tracker updated</p>
+                            <!-- LLM button removed -->
+                        </div>
+                         <div class="flow-step">
+                            <div class="flow-number">3</div>
+                            <h3 class="font-bold text-lg mb-1">Active Transaction</h3>
+                            <p class="text-gray-600">Rep delivers all info, pics into folder, no loose links</p>
+                            <!-- LLM button removed -->
+                        </div>
+                         <div class="flow-step">
+                            <div class="flow-number">4</div>
+                            <h3 class="font-bold text-lg mb-1">Dispo Launch</h3>
+                            <p class="text-gray-600">Ari markets via all channels, $25K min spread, confirm with Chris if unsure</p>
+                            <!-- LLM button removed -->
+                        </div>
+                         <div class="flow-step">
+                            <div class="flow-number">5</div>
+                            <h3 class="font-bold text-lg mb-1">Buyer Committed</h3>
+                            <p class="text-gray-600">Assignment/double close signed, TC + Ari clear escrow issues</p>
+                            <!-- LLM button removed -->
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-number">6</div>
+                            <h3 class="font-bold text-lg mb-1">Closing Date Set</h3>
+                            <p class="text-gray-600">Title cleared, tracker updated, deal marked 'Closed'</p>
+                            <!-- LLM button removed -->
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-number bg-green-500">7</div>
+                            <h3 class="font-bold text-lg mb-1">Celebrate! 🎉</h3>
+                            <p class="text-gray-600">Team hypes win, tracker finalized</p>
+                            <!-- LLM button removed -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        const wrapLabel = (label) => {
+            const maxLen = 16;
+            if (label.length <= maxLen) return label;
+            
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            
+            for (const word of words) {
+                if ((currentLine + ' ' + word).trim().length > maxLen) {
+                    lines.push(currentLine.trim());
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            }
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        };
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+
+        const sharedChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        font: {
+                            family: 'Inter',
+                        }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    }
+                }
+            }
+        };
+
+        const acquisitionsActivityCtx = document.getElementById('acquisitionsActivityChart').getContext('2d');
+        new Chart(acquisitionsActivityCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Contracts per Week', 'Offers per Week'],
+                datasets: [{
+                    label: 'Weekly Target',
+                    data: [4, 20],
+                    backgroundColor: ['var(--color-medium-green)', 'var(--color-yellow-accent)'], 
+                    borderColor: ['var(--color-dark-green)', '#C9A000'], 
+                    borderWidth: 1,
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...sharedChartOptions,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                           color: '#E5E7EB'
+                        },
+                        ticks: {
+                            color: '#4B5563',
+                            font: {
+                                family: 'Inter'
+                            }
+                        }
+                    },
+                    x: {
+                        grid: {
+                           display: false
+                        },
+                         ticks: {
+                            color: 'var(--color-dark-green)', 
+                             font: {
+                                family: 'Inter',
+                                size: 14,
+                                weight: '600'
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    ...sharedChartOptions.plugins,
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+        // All Gemini API related functions removed:
+        // callGeminiAPI
+        // generateRoleDescription
+        // generateMeetingAgenda
+        // suggestTrainingTopics
+        // identifyRoadblocks
+        // generateImprovementTips
+    </script>
+
+</body>
+</html>
